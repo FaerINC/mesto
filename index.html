@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru" class="html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+  </head>
+  <body class="root">
+    <div class="page">
+      <header class="header">
+        <img src="./images/logo.svg" class="header__logo" alt="ЛоготипMESTO" />
+      </header>
+
+      <main class="main">
+        <section class="profile">
+          <div class="profile__card">
+            <img src="./images/kysto.jpg" class="profile__avatar" />
+            <div class="profile__info">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button
+                type="button"
+                title="Редактировать профиль"
+                class="profile__edit-button opacity"
+              ></button>
+              <p class="profile__about">Исследователь океана</p>
+            </div>
+          </div>
+          <button type="button" class="profile__add-button opacity"></button>
+        </section>
+
+        <section class="elements">
+          <ul class="elements__list">
+            <li class="element">
+              <img
+                class="element__image"
+                src="./images/dombai.png"
+                alt="Домбай"
+              />
+              <div class="element__container">
+                <h2 class="element__text">Домбай</h2>
+                <button
+                  type="button"
+                  class="element__like-button opacity"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                class="element__image"
+                src="./images/elbrus.png"
+                alt="Эльбрус"
+              />
+              <div class="element__container">
+                <h2 class="element__text">Эльбрус</h2>
+                <button
+                  type="button"
+                  class="element__like-button opacity"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                class="element__image"
+                src="./images/kara4aevo.png"
+                alt="Карачаево-Черкесия"
+              />
+              <div class="element__container">
+                <h2 class="element__text">Карачаево-Черкесия</h2>
+                <button
+                  type="button"
+                  class="element__like-button opacity"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                class="element__image"
+                src="./images/kreml (1).jpg"
+                alt="Кремль"
+              />
+              <div class="element__container">
+                <h2 class="element__text">Кремль</h2>
+                <button
+                  type="button"
+                  class="element__like-button opacity"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                class="element__image"
+                src="./images/seloosenevo (1).jpg"
+                alt="СелоОсенево"
+              />
+              <div class="element__container">
+                <h2 class="element__text">Село Осенево</h2>
+                <button
+                  type="button"
+                  class="element__like-button opacity"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                class="element__image"
+                src="./images/ydmyrtia.jpg"
+                alt="Удмуртия"
+              />
+              <div class="element__container">
+                <h2 class="element__text">Удмуртия</h2>
+                <button
+                  type="button"
+                  class="element__like-button opacity"
+                ></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__author">&copy; 2022 Место Russia</p>
+      </footer>
+
+      <section class="popup">
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <button class="popup__close-btn opacity" type="button"></button>
+          <form class="form form_edit-profile">
+            <input
+              class="form__add-name"
+              placeholder="Имя"
+              type="text"
+              value="Жак-Ив Кусто"
+            />
+            <input
+              class="form__add-about"
+              placeholder="Информация"
+              type="text"
+              value="Исследователь океана"
+            />
+            <button class="form__save-btn opacity" type="submit">
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </section>
+      <script type="text/javascript" src="./index.js"></script>
+    </div>
+  </body>
+</html>

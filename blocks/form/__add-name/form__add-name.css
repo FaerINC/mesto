@@ -1,0 +1,21 @@
+.form__add-name {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 13px;
+  width: 358px;
+}
+
+@media screen and (max-width: 450px) {
+  .form__add-name {
+    width: 238px;
+  }
+}
