@@ -10,7 +10,9 @@
   <body class="root">
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" class="header__logo" alt="ЛоготипMESTO" />
+        <a href="#"
+          ><img src="./images/logo.svg" class="header__logo" alt="ЛоготипMESTO"
+        /></a>
       </header>
 
       <main class="main">
@@ -132,15 +134,15 @@
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <button class="popup__close-btn opacity" type="button"></button>
-          <form class="form form_edit-profile">
+          <form name="ProfileEdit" class="form form_edit-profile">
             <input
-              class="form__add-name"
+              class="form__input form__input_add-name"
               placeholder="Имя"
               type="text"
               value="Жак-Ив Кусто"
             />
             <input
-              class="form__add-about"
+              class="form__input form__input_add-about"
               placeholder="Информация"
               type="text"
               value="Исследователь океана"
@@ -151,7 +153,7 @@
           </form>
         </div>
       </section>
-      <script type="text/javascript" src="./index.js"></script>
     </div>
+    <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>

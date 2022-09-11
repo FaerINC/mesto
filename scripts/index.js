@@ -5,24 +5,28 @@ let formedit = document.querySelector(".popup");
 let profilename = document.querySelector(".profile__name");
 let profileabout = document.querySelector(".profile__about");
 let formElement = document.querySelector(".form_edit-profile");
-let nameInput = document.querySelector(".form__add-name");
-let jobInput = document.querySelector(".form__add-about");
+let nameInput = document.querySelector(".form__input_add-name");
+let jobInput = document.querySelector(".form__input_add-about");
 
-openeditprofile.addEventListener("click", () => {
+function openEditProfile() {
   formedit.classList.add("popup_opened");
   nameInput.textContent = profilename.value;
   jobInput.textContent = profileabout.value;
-});
+}
 
-exitbutton.addEventListener("click", () => {
+openeditprofile.addEventListener("click", () => openEditProfile());
+
+function exitEditProfile() {
   formedit.classList.remove("popup_opened");
-});
+}
+
+exitbutton.addEventListener("click", () => exitEditProfile());
 
 savebutton.addEventListener("click", function formSubmitHandler(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   profilename.textContent = nameInput.value;
   profileabout.textContent = jobInput.value;
-  formedit.classList.remove("popup_opened");
+  exitEditProfile();
 });
 
 // Прикрепляем обработчик к форме:
