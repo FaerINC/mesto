@@ -1,5 +1,4 @@
 let openeditprofile = document.querySelector(".profile__edit-button");
-let savebutton = document.querySelector(".form__save-btn");
 let exitbutton = document.querySelector(".popup__close-btn");
 let formedit = document.querySelector(".popup");
 let profilename = document.querySelector(".profile__name");
@@ -28,8 +27,6 @@ function formSubmitHandler(evt) {
   profileabout.textContent = jobInput.value;
   exitEditProfile();
 }
-
-savebutton.addEventListener("click", formSubmitHandler);
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
