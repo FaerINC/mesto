@@ -1,11 +1,11 @@
-.form__input_add-name {
+.form__input_add_name {
   margin-bottom: 25px;
   padding-bottom: 9px;
   width: 358px;
 }
 
 @media screen and (max-width: 450px) {
-  .form__input_add-name {
+  .form__input_add_name {
     margin-bottom: 27px;
     width: 238px;
   }

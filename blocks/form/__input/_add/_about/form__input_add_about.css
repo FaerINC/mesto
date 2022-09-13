@@ -1,11 +1,10 @@
-.form__input_add-about {
+.form__input_add_about {
   padding-bottom: 10px;
   padding-top: 2px;
 }
 
 @media screen and (max-width: 450px) {
-  .form__input_add-about {
-    padding-bottom: 10px;
+  .form__input_add_about {
     width: 238px;
   }
 }

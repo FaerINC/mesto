@@ -31,5 +31,5 @@
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__save-btn/form__save-btn.css);
 @import url(../blocks/form/_edit-profile/form_edit-profile.css);
-@import url(../blocks/form/__input/_add-name/form__input_add-name.css);
-@import url(../blocks/form/__input/_add-about/form__input_add-about.css);
+@import url(../blocks/form/__input/_add/_name/form__input_add_name.css);
+@import url(../blocks/form/__input/_add/_about/form__input_add_about.css);
