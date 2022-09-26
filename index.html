@@ -37,92 +37,7 @@
         </section>
 
         <section class="elements">
-          <ul class="elements__list">
-            <li class="element">
-              <img
-                class="element__image"
-                src="./images/dombai.png"
-                alt="Домбай"
-              />
-              <div class="element__container">
-                <h2 class="element__text">Домбай</h2>
-                <button
-                  type="button"
-                  class="element__like-button opacity"
-                ></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                class="element__image"
-                src="./images/elbrus.png"
-                alt="Эльбрус"
-              />
-              <div class="element__container">
-                <h2 class="element__text">Эльбрус</h2>
-                <button
-                  type="button"
-                  class="element__like-button opacity"
-                ></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                class="element__image"
-                src="./images/kara4aevo.png"
-                alt="Карачаево-Черкесия"
-              />
-              <div class="element__container">
-                <h2 class="element__text">Карачаево-Черкесия</h2>
-                <button
-                  type="button"
-                  class="element__like-button opacity"
-                ></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                class="element__image"
-                src="./images/kreml.jpg"
-                alt="Кремль"
-              />
-              <div class="element__container">
-                <h2 class="element__text">Кремль</h2>
-                <button
-                  type="button"
-                  class="element__like-button opacity"
-                ></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                class="element__image"
-                src="./images/seloosenevo.jpg"
-                alt="СелоОсенево"
-              />
-              <div class="element__container">
-                <h2 class="element__text">Село Осенево</h2>
-                <button
-                  type="button"
-                  class="element__like-button opacity"
-                ></button>
-              </div>
-            </li>
-            <li class="element">
-              <img
-                class="element__image"
-                src="./images/ydmyrtia.jpg"
-                alt="Удмуртия"
-              />
-              <div class="element__container">
-                <h2 class="element__text">Удмуртия</h2>
-                <button
-                  type="button"
-                  class="element__like-button opacity"
-                ></button>
-              </div>
-            </li>
-          </ul>
+          <ul id="elements__list" class="elements__list"></ul>
         </section>
       </main>
 
@@ -130,11 +45,15 @@
         <p class="footer__author">&copy; 2022 Место Russia</p>
       </footer>
 
-      <section class="popup">
+      <section class="popup popup_edit_profile">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <button class="popup__close-btn opacity" type="button"></button>
-          <form name="ProfileEdit" class="form form_edit-profile">
+          <form
+            onsubmit="return false;"
+            name="ProfileEdit"
+            class="form form_edit-profile"
+          >
             <input
               class="form__input form__input_add_name"
               placeholder="Имя"
@@ -153,7 +72,69 @@
           </form>
         </div>
       </section>
+
+      <section class="popup popup_add_card">
+        <div class="popup__container">
+          <h2 class="popup__title">Новое место</h2>
+          <button
+            id="closeaddcard"
+            class="popup__close-btn opacity"
+            type="button"
+          ></button>
+          <form
+            onsubmit="return false;"
+            name="ProfileEdit"
+            class="form form_edit-profile"
+          >
+            <input
+              class="form__input form__input_add_name"
+              placeholder="Название"
+              type="text"
+              value=""
+              id="nameofnewcard"
+            />
+            <input
+              class="form__input form__input_add_about"
+              placeholder="Ссылка на картинку"
+              type="text"
+              value=""
+              id="linkimage"
+            />
+            <button
+              id="addnewcardbutton"
+              class="form__save-btn opacity"
+              type="submit"
+            >
+              Создать
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="popup popup-image">
+        <div class="popup-image__container">
+          <h2 class="popup-image__title"></h2>
+          <img id="img" class="popup-image__image" src="" alt="" />
+          <button class="popup__close-btn opacity" type="button"></button>
+        </div>
+      </section>
     </div>
+
+    <template class="element_template">
+      <li class="element">
+        <img id="cardimage" class="element__image" src="" alt="" />
+        <div class="element__container">
+          <h2 class="element__text"></h2>
+          <button
+            id="cardlike"
+            type="button"
+            class="element__like-button opacity"
+          ></button>
+        </div>
+        <button id="trashicon" class="element__trash-icon opacity"></button>
+      </li>
+    </template>
+
     <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>
