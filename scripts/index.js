@@ -80,8 +80,6 @@ openaddcardform.addEventListener("click", () => {
   openPopup(openaddcardpopup);
 });
 
-const popupimg = document.querySelector(".popup-image");
-
 // слушатели для карточек
 function setListenersForButtons(el) {
   const carddeletebutton = el.getElementById("trashicon");
@@ -97,11 +95,12 @@ function setListenersForButtons(el) {
   });
 }
 // Открытие попапа с фоткой
+const popupimg = document.querySelector(".popup-image");
+const popupImgopen = popupimg.getElementById("img");
+const popupImageOpenTitle = popupimg.querySelector(".popup-image__title");
 
 function handleOpenImage(imageopen) {
-  const popupImgopen = imageopen.getElementById("img");
-  const popupImageOpenTitle = imageopen.querySelector(".popup-image__title");
-  popupImageOpenTitle.textContent = cardData.currentTarget.alt;
+  popupImageOpenTitle.textContent = imageopen.currentTarget.alt;
   popupImgopen.alt = imageopen.currentTarget.alt;
   popupImgopen.src = imageopen.currentTarget.currentSrc;
   openPopup(popupimg);
