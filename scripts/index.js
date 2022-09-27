@@ -13,11 +13,11 @@ const popupAddCard = document.querySelector(".popup_add_card"); //попап с 
 const buttonOpenAddCardForm = document.querySelector(".profile__add-button"); //кнопка открытия эдд кард попапа
 const buttonCloseAddCardForm = document.getElementById("closeaddcard"); //кнопка закрытия эдд кард попапа
 const cardList = document.getElementById("elements__list"); // nashli sam spisok kyda bydem vstavl9tb elements
-const cardTemplate = document.querySelector(".element_template").content; //нашли содержимое темплейта
-const card = cardTemplate.querySelector(".element"); //нашли саму карточку но толку от этого ноль!!!
 const InputCardName = document.getElementById("nameofnewcard"); // нашли инпут имени новой карты
 const InputCardLink = document.getElementById("linkimage"); // инпут ссылки на новую картинку
-const buttonAddNewCard = document.getElementById("addnewcardbutton");
+const buttonAddNewCard = document.getElementById("addnewcardbutton"); //кнопка добавления новой карточки
+const cardTemplate = document.querySelector(".element_template").content; //нашли содержимое темплейта
+const card = cardTemplate.querySelector(".element"); //нашли саму карточку
 
 // Открытие попапа с фоткой
 const popupImg = document.querySelector(".popup-image");
@@ -33,7 +33,7 @@ initialCards.forEach(function (value) {
 
 //функция создания карточки
 function renderItem(text, link) {
-  const cardElemNew = cardTemplate.cloneNode(true); //если я вместо .content cardTemplate подсталяю card => ничего не работает(( :(
+  const cardElemNew = card.cloneNode(true);
   const cardText = cardElemNew.querySelector(".element__text");
   const cardImage = cardElemNew.querySelector(".element__image");
 
@@ -55,11 +55,11 @@ function handleSubmit() {
 
 // слушатели для карточек
 function setListenersForButtons(el) {
-  const buttonDeleteCard = el.getElementById("trashicon");
+  const buttonDeleteCard = el.querySelector(".element__trash-icon");
   buttonDeleteCard.addEventListener("click", handleDelete);
-  const buttonLikeCard = el.getElementById("cardlike");
+  const buttonLikeCard = el.querySelector(".element__like-button");
   buttonLikeCard.addEventListener("click", handleLike);
-  const cardImage = el.getElementById("cardimage");
+  const cardImage = el.querySelector(".element__image");
   cardImage.addEventListener("click", handleOpenImage);
 }
 
