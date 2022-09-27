@@ -45,7 +45,7 @@
         <p class="footer__author">&copy; 2022 Место Russia</p>
       </footer>
 
-      <section class="popup popup_edit_profile">
+      <div class="popup popup_edit_profile">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <button class="popup__close-btn opacity" type="button"></button>
@@ -71,9 +71,9 @@
             </button>
           </form>
         </div>
-      </section>
+      </div>
 
-      <section class="popup popup_add_card">
+      <div class="popup popup_add_card">
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
           <button
@@ -109,9 +109,9 @@
             </button>
           </form>
         </div>
-      </section>
+      </div>
 
-      <section class="popup popup-image">
+      <div class="popup popup-image">
         <div class="popup-image__container">
           <img
             id="img"
@@ -122,11 +122,11 @@
           <h2 class="popup-image__title"></h2>
           <button class="popup-image__close-btn opacity" type="button"></button>
         </div>
-      </section>
+      </div>
     </div>
 
     <template class="element_template">
-      <li class="element">
+      <li id="element" class="element">
         <img
           id="cardimage"
           class="element__image"
@@ -145,6 +145,7 @@
       </li>
     </template>
 
+    <script type="text/javascript" src="./scripts/data.js"></script>
     <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>
