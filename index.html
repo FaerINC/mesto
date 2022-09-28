@@ -77,7 +77,7 @@
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
           <button
-            id="closeaddcard"
+            id="buttonClosePopupAddCard"
             class="popup__close-btn opacity"
             type="button"
           ></button>
@@ -91,17 +91,17 @@
               placeholder="Название"
               type="text"
               value=""
-              id="nameofnewcard"
+              id="inputNameCardNew"
             />
             <input
               class="form__input form__input_add_link"
               placeholder="Ссылка на картинку"
               type="text"
               value=""
-              id="linkimage"
+              id="inputLinkCardNew"
             />
             <button
-              id="addnewcardbutton"
+              id="buttonAddNewCard"
               class="form__save-btn opacity"
               type="submit"
             >
@@ -128,7 +128,7 @@
     <template class="element_template">
       <li id="element" class="element">
         <img
-          id="cardimage"
+          id="cardImage"
           class="element__image"
           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgYAAAAAMAASsJTYQAAAAASUVORK5CYII="
           alt=""
@@ -136,12 +136,12 @@
         <div class="element__container">
           <h2 class="element__text"></h2>
           <button
-            id="cardlike"
+            id="cardLike"
             type="button"
             class="element__like-button opacity"
           ></button>
         </div>
-        <button id="trashicon" class="element__trash-icon opacity"></button>
+        <button id="trashIcon" class="element__trash-icon opacity"></button>
       </li>
     </template>
 

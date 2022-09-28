@@ -11,11 +11,13 @@ const jobInput = document.querySelector(".form__input_add_about");
 //ищем список куда мы будем добавлять карточки i.t.d.
 const popupAddCard = document.querySelector(".popup_add_card"); //попап с добавлением карточки
 const buttonOpenAddCardForm = document.querySelector(".profile__add-button"); //кнопка открытия эдд кард попапа
-const buttonCloseAddCardForm = document.getElementById("closeaddcard"); //кнопка закрытия эдд кард попапа
+const buttonCloseAddCardForm = document.getElementById(
+  "buttonClosePopupAddCard"
+); //кнопка закрытия эдд кард попапа
 const cardList = document.getElementById("elements__list"); // nashli sam spisok kyda bydem vstavl9tb elements
-const InputCardName = document.getElementById("nameofnewcard"); // нашли инпут имени новой карты
-const InputCardLink = document.getElementById("linkimage"); // инпут ссылки на новую картинку
-const buttonAddNewCard = document.getElementById("addnewcardbutton"); //кнопка добавления новой карточки
+const inputCardName = document.getElementById("inputNameCardNew"); // нашли инпут имени новой карты
+const inputCardLink = document.getElementById("inputLinkCardNew"); // инпут ссылки на новую картинку
+const buttonAddNewCard = document.getElementById("buttonAddNewCard"); //кнопка добавления новой карточки
 const cardTemplate = document.querySelector(".element_template").content; //нашли содержимое темплейта
 const card = cardTemplate.querySelector(".element"); //нашли саму карточку
 
@@ -48,7 +50,7 @@ function renderItem(text, link) {
 
 //Добавление карточек
 function handleSubmit() {
-  const item = renderItem(InputCardName.value, InputCardLink.value);
+  const item = renderItem(inputCardName.value, inputCardLink.value);
   cardList.prepend(item);
   closePopup(popupAddCard);
 }
@@ -114,8 +116,8 @@ buttonCloseAddCardForm.addEventListener("click", () => {
 
 //открываем добавлятель карточек
 buttonOpenAddCardForm.addEventListener("click", () => {
-  InputCardName.value = "";
-  InputCardLink.value = "";
+  inputCardName.value = "";
+  inputCardLink.value = "";
   openPopup(popupAddCard);
 });
 
