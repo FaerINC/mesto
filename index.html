@@ -53,20 +53,31 @@
             onsubmit="return false;"
             name="ProfileEdit"
             class="form form_edit-profile"
+            novalidate
           >
             <input
               class="form__input form__input_add_name"
+              minlength="2"
+              maxlength="40"
               placeholder="Имя"
               type="text"
               value="Жак-Ив Кусто"
+              required
+              id="profileAddName"
             />
+            <span id="profileAddName-error" class="error-span"></span>
             <input
               class="form__input form__input_add_about"
               placeholder="Информация"
+              minlength="2"
+              maxlength="200"
               type="text"
               value="Исследователь океана"
+              required
+              id="profileAddAbout"
             />
-            <button class="form__save-btn opacity" type="submit">
+            <span id="profileAddAbout-error" class="error-span"></span>
+            <button class="form__save-btn opacity" type="submit" disabled>
               Сохранить
             </button>
           </form>
@@ -83,27 +94,35 @@
           ></button>
           <form
             onsubmit="return false;"
-            name="ProfileEdit"
-            class="form form_edit-profile"
+            name="addCard"
+            class="form form_add-card"
+            novalidate
           >
             <input
               class="form__input form__input_add_name"
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
               type="text"
               value=""
               id="inputNameCardNew"
+              required
             />
+            <span id="inputNameCardNew-error" class="error-span"></span>
             <input
               class="form__input form__input_add_link"
               placeholder="Ссылка на картинку"
-              type="text"
+              type="url"
               value=""
               id="inputLinkCardNew"
+              required
             />
+            <span id="inputLinkCardNew-error" class="error-span"></span>
             <button
               id="buttonAddNewCard"
               class="form__save-btn opacity"
               type="submit"
+              disabled
             >
               Создать
             </button>
@@ -146,6 +165,7 @@
     </template>
 
     <script type="text/javascript" src="./scripts/data.js"></script>
+    <script type="text/javascript" src="./scripts/validate.js"></script>
     <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>
