@@ -1,11 +1,3 @@
-const jobInput = document.querySelector(".form__input_add_about");
-const inputCardName = document.getElementById("inputNameCardNew"); // нашли инпут имени новой карты
-const inputCardLink = document.getElementById("inputLinkCardNew"); // инпут ссылки на новую картинку
-const buttonAddNewCard = document.getElementById("buttonAddNewCard"); //кнопка добавления новой карточки
-const formElement = document.querySelector(".form_edit-profile");
-const formInput = formElement.querySelector(".form__input");
-const nameInput = document.querySelector(".form__input_add_name");
-
 //вызываем функцию и передаём ей наши классы
 enableValidation({
   formSelector: ".form",
@@ -36,11 +28,15 @@ function setListeners(settings, form) {
       updateSubmitButton(settings, submitButton, form.checkValidity());
     });
   }
+
+  form.addEventListener("reset", (evt) => {
+    updateSubmitButton(settings, submitButton, false);
+  });
 }
 
 //вызываем ошибки
 function updateInputValidation(settings, input) {
-  const errorSpan = input.parentNode.querySelector(`#${input.id}-error`);
+  const errorSpan = document.querySelector(`#${input.id}-error`);
   errorSpan.textContent = input.validationMessage;
   if (errorSpan.textContent !== "") {
     input.classList.add(settings.inputErrorClass);
