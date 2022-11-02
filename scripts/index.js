@@ -114,7 +114,7 @@ function handleClickClosePopup(evt) {
 }
 
 //закрытие
-function closePopup() {
+export default function closePopup() {
   const popupElem = document.querySelector(".popup_opened");
   popupElem.classList.remove("popup_opened");
   popupElem.removeEventListener("click", handleClickClosePopup);
@@ -167,3 +167,13 @@ buttonAddNewCard.addEventListener("click", handleSubmit);
 buttonClosePopupImage.addEventListener("click", () => {
   closePopup(popupImg);
 });
+
+export {
+  popupImg,
+  popupImgOpen,
+  popupImageOpenTitle,
+  openPopup,
+  closeEsc,
+  handleClickClosePopup,
+  closePopup,
+};
