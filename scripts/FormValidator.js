@@ -1,5 +1,8 @@
+import { formAddCard } from "./index.js";
+
 export default class FormValidator {
   constructor(settings, form) {
+    this._settings = settings;
     this._formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
@@ -9,48 +12,48 @@ export default class FormValidator {
     this._form = form;
   }
   //включили нашу валидацию
-  enableValidation(settings, form) {
-    this._setListeners(settings, form);
+  enableValidation() {
+    this._setListeners();
   }
 
   //вешаем обработчики на инпуты
-  _setListeners = (settings, form) => {
-    const allInputs = form.querySelectorAll(settings.inputSelector);
-    const submitButton = form.querySelector(settings.submitButtonSelector);
+  _setListeners = () => {
+    const allInputs = this._form.querySelectorAll(this._inputSelector);
+    const submitButton = this._form.querySelector(this._submitButtonSelector);
 
     for (let input of allInputs) {
       input.addEventListener("input", () => {
-        this._updateInputValidation(settings, input);
-        this._updateSubmitButton(settings, submitButton, form.checkValidity());
+        this._updateInputValidation(input);
+        this._updateSubmitButton(submitButton, this._form.checkValidity());
       });
     }
 
-    form.addEventListener("reset", (evt) => {
-      this._updateSubmitButton(settings, submitButton, false);
+    formAddCard.addEventListener("reset", () => {
+      this._updateSubmitButton(submitButton, false);
     });
   };
 
   //вызываем ошибки
-  _updateInputValidation(settings, input) {
+  _updateInputValidation(input) {
     const errorSpan = document.querySelector(`#${input.id}-error`);
     errorSpan.textContent = input.validationMessage;
     if (errorSpan.textContent !== "") {
-      input.classList.add(settings.inputErrorClass);
-      errorSpan.classList.add(settings.errorClass);
+      input.classList.add(this._inputErrorClass);
+      errorSpan.classList.add(this._errorClass);
     } else {
-      input.classList.remove(settings.inputErrorClass);
-      errorSpan.classList.remove(settings.errorClass);
+      input.classList.remove(this._inputErrorClass);
+      errorSpan.classList.remove(this._errorClass);
     }
   }
 
   //работа с кнопкой
-  _updateSubmitButton(settings, button, valid) {
+  _updateSubmitButton(button, valid) {
     if (valid) {
       button.removeAttribute("disabled");
-      button.classList.add(settings.activeButtonClass);
+      button.classList.add(this._activeButtonClass);
     } else {
       button.setAttribute("disabled", true);
-      button.classList.remove(settings.activeButtonClass);
+      button.classList.remove(this._activeButtonClass);
     }
   }
 }

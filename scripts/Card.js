@@ -1,20 +1,15 @@
-import {
-  popupImg,
-  popupImgOpen,
-  popupImageOpenTitle,
-  openPopup,
-} from "./index.js";
+import { handleOpenImage } from "./utils.js";
 
 export default class Card {
-  constructor(text, link, selector) {
-    this._name = text;
-    this._link = link;
-    this._selector = selector;
+  constructor(data, templateSelector) {
+    this._name = data.name;
+    this._link = data.link;
+    this._templateSelector = templateSelector;
   }
 
   _getTemplate() {
     const templateElement = document
-      .querySelector(this._selector)
+      .querySelector(this._templateSelector)
       .content.querySelector(".element")
       .cloneNode(true);
 
@@ -23,47 +18,36 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(".element__image").alt = this._name;
+    this._elementImage = this._element.querySelector(".element__image");
+    this._elementImage.src = this._link;
+    this._elementImage.alt = this._name;
     this._element.querySelector(".element__text").textContent = this._name;
 
-    this._setEventListiners();
+    this._setEventListeners();
 
     return this._element;
   }
 
-  _setEventListiners() {
-    const cardImage = this._element.querySelector(".element__image");
-    cardImage.addEventListener("click", (e) => {
-      this._handleOpenImage(e);
-    });
+  _setEventListeners() {
+    this._elementLike = this._element.querySelector(".element__like-button");
+    this._elementImage.addEventListener("click", handleOpenImage);
     this._element
       .querySelector(".element__trash-icon")
       .addEventListener("click", (e) => {
         this._handleDelete(e);
       });
-    this._element
-      .querySelector(".element__like-button")
-      .addEventListener("click", (e) => {
-        this._handleLike(e);
-      });
+    this._elementLike.addEventListener("click", (e) => {
+      this._handleLike(e);
+    });
   }
 
-  _handleOpenImage(e) {
-    popupImageOpenTitle.textContent = e.currentTarget.alt;
-    popupImgOpen.alt = e.currentTarget.alt;
-    popupImgOpen.src = e.currentTarget.currentSrc;
-    openPopup(popupImg);
+  _handleDelete() {
+    this._element.remove();
+    this._element = null;
   }
 
-  _handleDelete(e) {
-    const cardNow = e.target.closest(".element");
-    cardNow.remove();
-  }
-
-  _handleLike(event) {
-    const likeNow = event.target.closest(".element__like-button");
-    likeNow.classList.toggle("element__like-button_active");
-    likeNow.classList.toggle("opacity");
+  _handleLike() {
+    this._elementLike.classList.toggle("element__like-button_active");
+    this._elementLike.classList.toggle("opacity");
   }
 }
