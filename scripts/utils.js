@@ -4,9 +4,9 @@ const popupImgOpen = popupImg.querySelector(".popup-image__image");
 const popupImageOpenTitle = popupImg.querySelector(".popup-image__title");
 
 //Открытие
-function openPopup(popupElem) {
-  popupElem.classList.add("popup_opened");
-  popupElem.addEventListener("click", handleClickClosePopup);
+function openPopup(popupNow) {
+  popupNow.classList.add("popup_opened");
+  popupNow.addEventListener("click", handleClickClosePopup);
   document.addEventListener("keydown", handleCloseByEsc);
 }
 
@@ -27,9 +27,9 @@ function handleClickClosePopup(evt) {
 
 //закрытие
 function closePopup() {
-  const popupElem = document.querySelector(".popup_opened");
-  popupElem.classList.remove("popup_opened");
-  popupElem.removeEventListener("click", handleClickClosePopup);
+  const popupNow = document.querySelector(".popup_opened");
+  popupNow.classList.remove("popup_opened");
+  popupNow.removeEventListener("click", handleClickClosePopup);
   document.removeEventListener("keydown", handleCloseByEsc);
 }
 

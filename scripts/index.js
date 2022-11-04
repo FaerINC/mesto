@@ -33,13 +33,13 @@ const jobInput = document.querySelector(".form__input_add_about");
 const inputCardName = formAddCard.querySelector(".form__input_add_name"); // нашли инпут имени новой карты
 const inputCardLink = formAddCard.querySelector(".form__input_add_link"); // инпут ссылки на новую картинку
 const buttonAddNewCard = formAddCard.querySelector(".form__save-btn"); //кнопка добавления новой карточки
-const formElement = document.querySelector(".form_edit-profile");
+const formEditProfile = document.querySelector(".form_edit-profile");
 const nameInput = document.querySelector(".form__input_add_name");
 const cardsContainer = document.querySelector(".elements__list"); // nashli sam spisok kyda bydem vstavl9tb elements
 const formValidatorAddCard = new FormValidator(validationConfig, formAddCard);
 const formValidatorEditProfile = new FormValidator(
   validationConfig,
-  formElement
+  formEditProfile
 );
 
 // включили валидацию
@@ -47,13 +47,28 @@ formValidatorEditProfile.enableValidation();
 formValidatorAddCard.enableValidation();
 
 //перебор массива с карточками и вызов функции создания
-initialCards.forEach(handleMakeTheCard);
+initialCards.forEach((cardData) => {
+  const card = createCard(cardData);
+  cardsContainer.prepend(card);
+});
 
 //создание карточки
-function handleMakeTheCard(item) {
-  const card = new Card(item, ".element_template");
+function createCard(cardData) {
+  const card = new Card(cardData, ".element_template");
   const newCard = card.generateCard();
-  cardsContainer.prepend(newCard);
+  return newCard;
+}
+
+//добавляем нашу новую карточку
+function handleAddNewCard() {
+  const userCardNew = {
+    name: inputCardName.value,
+    link: inputCardLink.value,
+  };
+  const card = createCard(userCardNew);
+  cardsContainer.prepend(card);
+  closePopup(popupAddCard);
+  formValidatorAddCard.disableButtonSubmit();
 }
 
 //сабмитим новые значения профиля
@@ -66,7 +81,7 @@ function handleProfileFormSubmit(evt) {
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener("submit", handleProfileFormSubmit);
+formEditProfile.addEventListener("submit", handleProfileFormSubmit);
 
 //закрываем добавлятель карточек
 buttonCloseAddCardForm.addEventListener("click", () => {
@@ -99,25 +114,4 @@ buttonClosePopupImage.addEventListener("click", () => {
 });
 
 //добавляем новую карточку
-buttonAddNewCard.addEventListener("click", () => {
-  const userCardNew = {
-    name: inputCardName.value,
-    link: inputCardLink.value,
-  };
-  handleMakeTheCard(userCardNew);
-  closePopup(popupAddCard);
-});
-
-export { formAddCard };
-
-// //Добавление карточек
-// function handleCardFormSubmit() {
-//   const userCardNew = {
-//     name: inputCardName.value,
-//     link: inputCardLink.value,
-//   };
-//   const card = new Card(userCardNew, ".element_template");
-//   const newCard = card.generateCard();
-//   cardsContainer.prepend(newCard);
-//   closePopup(popupAddCard);
-// }
+buttonAddNewCard.addEventListener("click", handleAddNewCard);

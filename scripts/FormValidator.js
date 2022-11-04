@@ -1,40 +1,36 @@
-import { formAddCard } from "./index.js";
-
 export default class FormValidator {
   constructor(settings, form) {
-    this._settings = settings;
-    this._formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._activeButtonClass = settings.activeButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
     this._form = form;
+    this._inputList = this._form.querySelectorAll(this._inputSelector);
+    this._submitButton = this._form.querySelector(this._submitButtonSelector);
   }
   //включили нашу валидацию
-  enableValidation() {
+  enableValidation = () => {
     this._setListeners();
-  }
+  };
+
+  disableButtonSubmit = () => {
+    this._submitButton.setAttribute("disabled", true);
+    this._submitButton.classList.remove(this._activeButtonClass);
+  };
 
   //вешаем обработчики на инпуты
   _setListeners = () => {
-    const allInputs = this._form.querySelectorAll(this._inputSelector);
-    const submitButton = this._form.querySelector(this._submitButtonSelector);
-
-    for (let input of allInputs) {
+    for (let input of this._inputList) {
       input.addEventListener("input", () => {
         this._updateInputValidation(input);
-        this._updateSubmitButton(submitButton, this._form.checkValidity());
+        this._updateSubmitButton();
       });
     }
-
-    formAddCard.addEventListener("reset", () => {
-      this._updateSubmitButton(submitButton, false);
-    });
   };
 
   //вызываем ошибки
-  _updateInputValidation(input) {
+  _updateInputValidation = (input) => {
     const errorSpan = document.querySelector(`#${input.id}-error`);
     errorSpan.textContent = input.validationMessage;
     if (errorSpan.textContent !== "") {
@@ -44,16 +40,15 @@ export default class FormValidator {
       input.classList.remove(this._inputErrorClass);
       errorSpan.classList.remove(this._errorClass);
     }
-  }
+  };
 
   //работа с кнопкой
-  _updateSubmitButton(button, valid) {
-    if (valid) {
-      button.removeAttribute("disabled");
-      button.classList.add(this._activeButtonClass);
+  _updateSubmitButton = () => {
+    if (this._form.checkValidity()) {
+      this._submitButton.removeAttribute("disabled");
+      this._submitButton.classList.add(this._activeButtonClass);
     } else {
-      button.setAttribute("disabled", true);
-      button.classList.remove(this._activeButtonClass);
+      this.disableButtonSubmit();
     }
-  }
+  };
 }
