@@ -1,10 +1,9 @@
-import { handleOpenImage } from "./utils.js";
-
 export default class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -29,8 +28,10 @@ export default class Card {
   }
 
   _setEventListeners() {
+    this._elementImage.addEventListener("click", () => {
+      this._handleCardClick(this._name, this._link);
+    });
     this._elementLike = this._element.querySelector(".element__like-button");
-    this._elementImage.addEventListener("click", handleOpenImage);
     this._element
       .querySelector(".element__trash-icon")
       .addEventListener("click", (e) => {
