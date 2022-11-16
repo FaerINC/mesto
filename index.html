@@ -56,6 +56,7 @@
             novalidate
           >
             <input
+              name="inputAddName"
               class="form__input form__input_add_name"
               minlength="2"
               maxlength="40"
@@ -67,6 +68,7 @@
             />
             <span id="profileAddName-error" class="error-span"></span>
             <input
+              name="inputAddAbout"
               class="form__input form__input_add_about"
               placeholder="Информация"
               minlength="2"
@@ -99,6 +101,7 @@
             novalidate
           >
             <input
+              name="inputAddNameCard"
               class="form__input form__input_add_name"
               placeholder="Название"
               minlength="2"
@@ -110,6 +113,7 @@
             />
             <span id="inputNameCardNew-error" class="error-span"></span>
             <input
+              name="inputAddLinkCard"
               class="form__input form__input_add_link"
               placeholder="Ссылка на картинку"
               type="url"
@@ -139,7 +143,7 @@
             alt=""
           />
           <h2 class="popup-image__title"></h2>
-          <button class="popup-image__close-btn opacity" type="button"></button>
+          <button class="popup__close-btn opacity" type="button"></button>
         </div>
       </div>
     </div>
@@ -172,5 +176,6 @@
     <script type="module" src="./scripts/Popup.js"></script>
     <script type="module" src="./scripts/PopupWithImage.js"></script>
     <script type="module" src="./scripts/PopupWithForm.js"></script>
+    <script type="module" src="./scripts/UserInfo.js"></script>
   </body>
 </html>
