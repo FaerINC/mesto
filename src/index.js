@@ -1,3 +1,5 @@
+import "./pages/index.css"; //Добавили стили для вебпака
+
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 //import { popupImg } from "./utils.js";
@@ -21,7 +23,6 @@ const validationConfig = {
 const popupImg = document.querySelector(".popup-image");
 // попап эдит профайл с его штучками...
 const buttonOpenEditProfile = document.querySelector(".profile__edit-button");
-const buttonExitFormEdit = document.querySelector(".popup__close-btn");
 const popupEditForm = document.querySelector(".popup_edit_profile");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
@@ -30,16 +31,9 @@ const profileAbout = document.querySelector(".profile__about");
 const popupAddCard = document.querySelector(".popup_add_card");
 const formAddCard = popupAddCard.querySelector(".form"); //попап с добавлением карточки
 const buttonOpenAddCardForm = document.querySelector(".profile__add-button"); //кнопка открытия эдд кард попапа
-const buttonCloseAddCardForm = popupAddCard.querySelector(".popup__close-btn"); //кнопка закрытия эдд кард попапа
-
-const buttonClosePopupImage = document.querySelector(".popup-image__close-btn");
 
 //формы
-const jobInput = document.querySelector(".form__input_add_about");
-const inputCardName = formAddCard.querySelector(".form__input_add_name"); // нашли инпут имени новой карты
-const inputCardLink = formAddCard.querySelector(".form__input_add_link"); // инпут ссылки на новую картинку
 const formEditProfile = document.querySelector(".form_edit-profile");
-const nameInput = document.querySelector(".form__input_add_name");
 const cardsContainer = document.querySelector(".elements__list"); // nashli sam spisok kyda bydem vstavl9tb elements
 
 const formValidatorAddCard = new FormValidator(validationConfig, formAddCard);
