@@ -51,4 +51,13 @@ export default class FormValidator {
       this.disableButtonSubmit();
     }
   };
+
+  cleanErrors() {
+    this._inputList.forEach((input) => {
+      const errorSpan = document.querySelector(`#${input.id}-error`);
+      input.classList.remove(this._inputErrorClass);
+      errorSpan.classList.remove(this._errorClass);
+      errorSpan.textContent = "";
+    });
+  }
 }

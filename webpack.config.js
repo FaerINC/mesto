@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // подклю�
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/pages/index.js",
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -63,7 +63,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // путь к файлу index.html
+      template: "./src/pages/index.html", // путь к файлу index.html
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(), // подключение плагина для объединения файлов
