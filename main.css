@@ -498,9 +498,7 @@ template {
 
 @media screen and (max-width: 767px) {
   .profile__avatar {
-    margin-bottom: 22.25px;
     margin-right: 0;
-    align-self: center;
   }
 }
 
@@ -982,6 +980,55 @@ template {
   background: #000000;
   color: #ffffff;
   opacity: 1;
+}
+
+.overlay-pencil {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.profile__picture {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  width: max-content;
+}
+
+.profile__picture:hover .overlay-pencil {
+  display: block;
+}
+
+.profile__picture:hover .profile__pencil {
+  display: inline;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__picture {
+    margin-bottom: 22.25px;
+    margin-right: 0;
+    align-self: center;
+  }
+}
+
+.profile__pencil {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 43px;
+  margin: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.popup__container_avatar {
+  height: 272px;
 }
 
 
