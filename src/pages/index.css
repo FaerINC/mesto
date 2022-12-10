@@ -44,3 +44,7 @@
 @import url(../blocks/form/__input/_add/_link/form__input_add_link.css);
 @import url(../blocks/form/__input/_type/_error/form__input_type_error.css);
 @import url(../blocks/form/__save-btn/_active/form__save-btn_active.css);
+@import url(../blocks/overlay-pencil/overlay-pencil.css);
+@import url(../blocks/profile/__picture/profile__picture.css);
+@import url(../blocks/profile/__pencil/profile__pencil.css);
+@import url(../blocks/popup/__container/_avatar/popup__container_avatar.css);

@@ -20,11 +20,15 @@
       <main class="main">
         <section class="profile">
           <div class="profile__card">
-            <img
-              src="<%=require('../images/kysto.jpg')%>"
-              alt="Жак-Ив Кусто"
-              class="profile__avatar"
-            />
+            <div class="profile__picture">
+              <div class="overlay-pencil"></div>
+              <img
+                src=""
+                alt="Жак-Ив Кусто"
+                class="profile__avatar"
+              />
+              <span class="profile__pencil"><img width="26px" height="26px" src="<%=require('../images/pencil.svg')%>" alt="карандаш"></svg></span>
+            </div>
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button
@@ -58,7 +62,7 @@
             novalidate
           >
             <input
-              name="inputAddName"
+              name="name"
               class="form__input form__input_add_name"
               minlength="2"
               maxlength="40"
@@ -69,7 +73,7 @@
             />
             <span id="profileAddName-error" class="error-span"></span>
             <input
-              name="inputAddAbout"
+              name="about"
               class="form__input form__input_add_about"
               placeholder="Информация"
               minlength="2"
@@ -134,6 +138,42 @@
         </div>
       </div>
 
+      <div class="popup popup_change-avatar">
+        <div class="popup__container popup__container_avatar">
+          <h2 class="popup__title">Обновить аватар</h2>
+          <button
+            id="buttonClosePopupChangeAvatar"
+            class="popup__close-btn opacity"
+            type="button"
+          ></button>
+          <form
+            onsubmit="return false;"
+            name="addCard"
+            class="form form_change-avatar"
+            novalidate
+          >
+            <input
+              name="inputAddLinkAvatar"
+              class="form__input form__input_add_link"
+              placeholder="Ссылка на картинку"
+              type="url"
+              value=""
+              id="inputLinkAvatarNew"
+              required
+            />
+            <span id="inputLinkAvatarNew-error" class="error-span"></span>
+            <button
+              id="buttonAddNewAvatar"
+              class="form__save-btn opacity"
+              type="submit"
+              disabled
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
+
       <div class="popup popup-image">
         <div class="popup-image__container">
           <img
@@ -147,6 +187,34 @@
         </div>
       </div>
     </div>
+
+    <div class="popup popup_confirmation">
+      <div class="popup__container popup__container_confirmation">
+          <button class="menu__close-icon menu-confirm__close-icon" type="button"></button>
+          <h2 class="menu__title menu-confirm__title">Вы уверены?</h2>
+          <button class="menu-confirm__button menu__button">Да</button>
+      </div>
+  </div>
+
+  <div class="popup popup_submit">
+    <div class="popup__container popup__container_submit">
+      <h2 class="popup__title">Вы Уверены?</h2>
+      <button
+        id="buttonClosePopupSubmit"
+        class="popup__close-btn opacity"
+        type="button"
+      ></button>
+        <button
+          id="buttonDeleteCard"
+          class="form__save-btn opacity"
+          type="submit"
+          disabled
+        >
+          Сохранить
+        </button>
+      </form>
+    </div>
+  </div>
 
     <template class="element_template">
       <li id="element" class="element">
@@ -165,6 +233,7 @@
           ></button>
         </div>
         <button id="trashIcon" class="element__trash-icon opacity"></button>
+        <span class="element__like-counter"></span>
       </li>
     </template>
     <!-- <script type="module" src="./index.js"></script> -->

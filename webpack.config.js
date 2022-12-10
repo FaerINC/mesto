@@ -9,10 +9,10 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: "[name].[hash].js", //был main!!
     publicPath: "",
   },
-  mode: "development",
+  mode: "development", //В КОНЦЕ СТАВИТЬ ПРОДАКШН
   devServer: {
     static: path.resolve(__dirname, "./dist"), // путь, куда "смотрит" режим разработчика
     compress: true, // это ускорит загрузку в режиме разработки
@@ -20,6 +20,8 @@ module.exports = {
 
     open: true, // сайт будет открываться сам при запуске npm run dev
   },
+
+  devtool: "source-map", //чтобы смотреть изначальный код а не вебпаковский В КОНЦЕ ПЕРЕД ПРОДОМ ОТКЛЮЧАТЬ
 
   module: {
     rules: [

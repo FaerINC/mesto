@@ -1,7 +1,8 @@
 export default class Userinfo {
-  constructor({ profileName, profileAbout }) {
+  constructor({ profileName, profileAbout, profileAvatarka }) {
     this._profileName = profileName;
     this._profileAbout = profileAbout;
+    this._profileAvatarka = profileAvatarka
   }
   // достали значения со страницы
   getUserInfo() {
@@ -13,8 +14,9 @@ export default class Userinfo {
     return profileValues;
   }
   //редактим инфу профиля
-  setUserInfo({ inputAddName, inputAddAbout }) {
-    this._profileName.textContent = inputAddName;
-    this._profileAbout.textContent = inputAddAbout;
+  setUserInfo({ name, about, avatar }) {
+    this._profileName.textContent = name;
+    this._profileAbout.textContent = about;
+    this._profileAvatarka.src = avatar
   }
 }
