@@ -22,12 +22,10 @@
           <div class="profile__card">
             <div class="profile__picture">
               <div class="overlay-pencil"></div>
-              <img
-                src="."
-                alt="Жак-Ив Кусто"
-                class="profile__avatar"
-              />
-              <span class="profile__pencil"><img src="<%=require('../images/pencil.svg')%>" alt="карандаш"/></span>
+              <img src="." alt="Жак-Ив Кусто" class="profile__avatar" />
+              <span class="profile__pencil"
+                ><img src="<%=require('../images/pencil.svg')%>" alt="карандаш"
+              /></span>
             </div>
             <div class="profile__info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -188,23 +186,25 @@
       </div>
     </div>
 
-  <div class="popup popup-submit">
-    <div class="popup__container popup__container_submit">
-      <h2 class="popup__title popup__title_submit">Вы Уверены?</h2>
-      <button
-        id="buttonClosePopupSubmit"
-        class="popup__close-btn opacity"
-        type="button"
-      ></button>
+    <div class="popup popup-submit">
+      <div class="popup__container popup__container_submit">
+        <h2 class="popup__title popup__title_submit">Вы Уверены?</h2>
         <button
-          id="buttonDeleteCard"
-          class="form__save-btn form__save-btn_active opacity"
-          type="submit"
-        >
-          Да
-        </button>
+          id="buttonClosePopupSubmit"
+          class="popup__close-btn opacity"
+          type="button"
+        ></button>
+        <form onsubmit="return false;">
+          <button
+            id="buttonDeleteCard"
+            class="form__save-btn opacity"
+            type="submit"
+          >
+            Да
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
 
     <template class="element_template">
       <li id="element" class="element">
@@ -224,7 +224,6 @@
           <span class="element__like-counter">0</span>
         </div>
         <button id="trashIcon" class="element__trash-icon opacity"></button>
-
       </li>
     </template>
     <!-- <script type="module" src="./index.js"></script> -->

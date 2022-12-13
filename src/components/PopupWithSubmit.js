@@ -9,6 +9,7 @@ export default class PopupWithSubmit extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
+    this._buttonSubmit.classList.add("form__save-btn_active");
     this._buttonSubmit.addEventListener("click", (e) => {
       e.preventDefault();
       this._handleSubmit(this._card);
