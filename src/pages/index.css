@@ -29,7 +29,7 @@
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
-@import url(../blocks/form/__save-btn/form__save_btn.css);
+@import url(../blocks/form/__save/_btn/form__save_btn.css);
 @import url(../blocks/form/_edit-profile/form_edit-profile.css);
 @import url(../blocks/form/__input/_add/_name/form__input_add_name.css);
 @import url(../blocks/form/__input/_add/_about/form__input_add_about.css);
@@ -43,7 +43,7 @@
 @import url(../blocks/error-span/error-span.css);
 @import url(../blocks/form/__input/_add/_link/form__input_add_link.css);
 @import url(../blocks/form/__input/_type/_error/form__input_type_error.css);
-@import url(../blocks/form/__save-btn/_active/form__save_btn_active.css);
+@import url(../blocks/form/__save/_btn/_active/form__save_btn_active.css);
 @import url(../blocks/overlay-pencil/overlay-pencil.css);
 @import url(../blocks/profile/__picture/profile__picture.css);
 @import url(../blocks/profile/__pencil/profile__pencil.css);
@@ -52,4 +52,4 @@
 @import url(../blocks/popup-submit/popup-submit.css);
 @import url(../blocks/popup/__container/_submit/popup__container_submit.css);
 @import url(../blocks/popup/__title/_submit/popup__title_submit.css);
-@import url(../blocks/form/__save-btn/_submit/form__save_btn_submit.css);
+@import url(../blocks/form/__save/_btn/_submit/form__save_btn_submit.css);

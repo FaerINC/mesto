@@ -1,0 +1,15 @@
+.form__save_btn_submit {
+    cursor: pointer;
+    background: #000000;
+    color: #ffffff;
+    opacity: 1;
+  }
+
+    @media screen and (max-width: 450px) {
+      .form__save_btn_submit {
+        text-align: center;
+        margin-top: 60px;
+        max-width: 282px;
+        max-height: 322px;
+      }
+    }
