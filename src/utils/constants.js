@@ -1,8 +1,8 @@
 const validationConfig = {
   formSelector: ".form",
   inputSelector: ".form__input",
-  submitButtonSelector: ".form__save-btn",
-  activeButtonClass: "form__save-btn_active",
+  submitButtonSelector: ".form__save_btn",
+  activeButtonClass: "form__save_btn_active",
   inputErrorClass: "form__input_type_error",
   errorClass: "error-span_visible",
 };
