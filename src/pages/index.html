@@ -188,17 +188,9 @@
       </div>
     </div>
 
-    <div class="popup popup_confirmation">
-      <div class="popup__container popup__container_confirmation">
-          <button class="menu__close-icon menu-confirm__close-icon" type="button"></button>
-          <h2 class="menu__title menu-confirm__title">Вы уверены?</h2>
-          <button class="menu-confirm__button menu__button">Да</button>
-      </div>
-  </div>
-
-  <div class="popup popup_submit">
+  <div class="popup popup-submit">
     <div class="popup__container popup__container_submit">
-      <h2 class="popup__title">Вы Уверены?</h2>
+      <h2 class="popup__title popup__title_submit">Вы Уверены?</h2>
       <button
         id="buttonClosePopupSubmit"
         class="popup__close-btn opacity"
@@ -206,13 +198,11 @@
       ></button>
         <button
           id="buttonDeleteCard"
-          class="form__save-btn opacity"
+          class="form__save-btn form__save-btn_submit opacity"
           type="submit"
-          disabled
         >
-          Сохранить
+          Да
         </button>
-      </form>
     </div>
   </div>
 
@@ -231,9 +221,10 @@
             type="button"
             class="element__like-button opacity"
           ></button>
+          <span class="element__like-counter">0</span>
         </div>
         <button id="trashIcon" class="element__trash-icon opacity"></button>
-        <span class="element__like-counter"></span>
+
       </li>
     </template>
     <!-- <script type="module" src="./index.js"></script> -->

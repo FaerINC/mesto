@@ -7,8 +7,7 @@ export default class Api {
   }
 
   getUserInformation() {
-    const url = `${this._baseUrl}/users/me`;
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers,
     })
@@ -22,8 +21,7 @@ export default class Api {
   } //get
 
   getAllCards() {
-    const url = `${this._baseUrl}/cards`;
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
     }).then((res) => {
@@ -34,13 +32,25 @@ export default class Api {
       }})
   } //get
 
-  getAllDataForStart() {
-    return Promise.all([this.getUserInformation(), this.getAllCards()]);
+  getMyId() {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "GET",
+      headers: this._headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`);
+        }
+      })
+      .then((res) => {
+        return res._id
+      })
   }
 
-  addNewCard(inputAddNameCard, inputAddLinkCard) {
-    const url = `${this._baseUrl}/cards`;
-    return fetch(url, {
+  addNewCard({ inputAddNameCard, inputAddLinkCard }) {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
@@ -56,9 +66,7 @@ export default class Api {
   } //post
 
   deleteCard(cardId) {
-    const url = `${this._baseUrl}/cards/${cardId}`;
-
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
     })
@@ -74,8 +82,7 @@ export default class Api {
 
 
   setUserInformtion({name, about}) {
-    const url = `${this._baseUrl}/cards`;
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -93,8 +100,7 @@ export default class Api {
   } //patch
 
   setNewAvatar(avatar) {
-    const url = `${this._baseUrl}/users/me/avatar`;
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -111,9 +117,7 @@ export default class Api {
   } //patch
 
   setLikeCard(cardId) {
-    const url = `${this._baseUrl}/cards/${cardId}/likes`;
-
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers
     })
@@ -130,9 +134,7 @@ export default class Api {
   } //put
 
   deleteLikeCard(cardId) {
-    const url = `${this._baseUrl}/cards/${cardId}/likes`;
-
-    return fetch(url, {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers
     })
@@ -147,14 +149,4 @@ export default class Api {
         return res.likes;
       });
   } //delete
-
-  cardLikeToggle(cardId, isLiked) {
-    if (isLiked) {
-      return this._deleteLike(cardId);
-    } else {
-      return this._setLike(cardId);
-    }
-  }
-
-
 }

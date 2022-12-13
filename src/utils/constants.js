@@ -33,8 +33,10 @@ const cardsContainer = document.querySelector(".elements__list"); // nashli sam 
 const buttonOpenEditAvatar = document.querySelector(".profile__pencil");
 const formChangeAvatar = document.querySelector(".form_change-avatar");
 const popupChangeAvatar = document.querySelector(".popup_change-avatar");
-const profileAvatarka = document.querySelector('.profile__avatar')
-const likeCounter = document.querySelector(".element__like-counter")
+const profileAvatarka = document.querySelector('.profile__avatar');
+const likeCounter = document.querySelector(".element__like-counter");
+const popupSubmit = document.querySelector('.popup-submit')
+
 
 
 export {
@@ -57,5 +59,6 @@ export {
   profileAvatarka,
   inputAddNameCard,
   inputAddLinkCard,
-  likeCounter
+  likeCounter,
+  popupSubmit
 };
