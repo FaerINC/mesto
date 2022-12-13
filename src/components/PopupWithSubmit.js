@@ -4,7 +4,7 @@ export default class PopupWithSubmit extends Popup {
   constructor(popupElement, handleSubmit) {
     super(popupElement);
     this._handleSubmit = handleSubmit;
-    this._buttonSubmit = this._popupElement.querySelector('.form__save_btn_submit')
+    this._buttonSubmit = this._popupElement.querySelector('.form__save_btn')
   }
 
   setEventListeners() {
