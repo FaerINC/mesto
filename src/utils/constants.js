@@ -1,8 +1,8 @@
 const validationConfig = {
   formSelector: ".form",
   inputSelector: ".form__input",
-  submitButtonSelector: ".form__save_btn",
-  activeButtonClass: "form__save_btn_active",
+  submitButtonSelector: ".form__save-btn",
+  activeButtonClass: "form__save-btn_active",
   inputErrorClass: "form__input_type_error",
   errorClass: "error-span_visible",
 };
@@ -23,8 +23,8 @@ const inputAddAboutProfileEdit = document.querySelector(
 //ищем список куда мы будем добавлять карточки i.t.d.
 const popupAddCard = document.querySelector(".popup_add_card");
 const formAddCard = popupAddCard.querySelector(".form"); //попап с добавлением карточки
-const inputAddNameCard = formAddCard.querySelector('.form__input_add_name');
-const inputAddLinkCard = formAddCard.querySelector('.form__input_add_link');
+const inputAddNameCard = formAddCard.querySelector(".form__input_add_name");
+const inputAddLinkCard = formAddCard.querySelector(".form__input_add_link");
 const buttonOpenAddCardForm = document.querySelector(".profile__add-button"); //кнопка открытия эдд кард попапа
 
 //формы
@@ -33,11 +33,9 @@ const cardsContainer = document.querySelector(".elements__list"); // nashli sam 
 const buttonOpenEditAvatar = document.querySelector(".profile__pencil");
 const formChangeAvatar = document.querySelector(".form_change-avatar");
 const popupChangeAvatar = document.querySelector(".popup_change-avatar");
-const profileAvatarka = document.querySelector('.profile__avatar');
+const profileAvatarka = document.querySelector(".profile__avatar");
 const likeCounter = document.querySelector(".element__like-counter");
-const popupSubmit = document.querySelector('.popup-submit')
-
-
+const popupSubmit = document.querySelector(".popup-submit");
 
 export {
   validationConfig,
@@ -60,5 +58,5 @@ export {
   inputAddNameCard,
   inputAddLinkCard,
   likeCounter,
-  popupSubmit
+  popupSubmit,
 };
