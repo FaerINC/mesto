@@ -81,11 +81,12 @@ export default class Card {
 
   setLikes(likes) {
     this._likeCounter.textContent = likes;
-    this._isLiked = this._isCardLiked();
     if (this._isLiked) {
       this._elementLike.classList.remove("element__like-button_active");
+      this._isLiked = false;
     } else {
       this._elementLike.classList.add("element__like-button_active");
+      this._isLiked = true;
     }
   }
 
