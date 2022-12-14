@@ -85,6 +85,7 @@ function handleDeleteCard(card) {
 }
 
 function handleLikeCard(card, isLiked) {
+  console.log(isLiked);
   apiPresets
     .toggleLike(card._data._id, isLiked)
     .then((res) => {

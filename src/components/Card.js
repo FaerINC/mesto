@@ -57,7 +57,7 @@ export default class Card {
       this._handleDelete();
     });
 
-    this.howManyLikes();
+    this._howManyLikes();
 
     if (this._data.owner._id != this._myId) {
       this._elementTrashIcon.remove();
@@ -81,6 +81,7 @@ export default class Card {
 
   setLikes(likes) {
     this._likeCounter.textContent = likes;
+    this._isLiked = this._isCardLiked();
     if (this._isLiked) {
       this._elementLike.classList.remove("element__like-button_active");
     } else {
@@ -88,7 +89,7 @@ export default class Card {
     }
   }
 
-  howManyLikes() {
+  _howManyLikes() {
     this._likeCounter.textContent = this._data.likes.length;
   }
 
