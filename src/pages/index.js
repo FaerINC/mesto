@@ -29,7 +29,6 @@ import {
   formChangeAvatar,
   popupChangeAvatar,
   profileAvatarka,
-  likeCounter,
   popupSubmit,
 } from "../utils/constants.js";
 
@@ -72,11 +71,11 @@ async function handleSubmit(card) {
     .getAllCards()
     .then((res) => {
       cardList.renderer(res);
+      popupSubmits.close();
     })
     .catch((err) => {
       console.log(err);
     });
-  popupSubmits.close();
 }
 
 function handleDeleteCard(card) {
@@ -115,9 +114,6 @@ const profileAvatar = new PopupWithForm(popupChangeAvatar, (avatar) => {
     });
 });
 profileAvatar.setEventListeners();
-
-// const ownerId = apiPresets.getUserInformation().then((profile) => {})
-// console.log(ownerId);
 
 //валидация форм
 const formValidatorAddCard = new FormValidator(validationConfig, formAddCard);
@@ -216,8 +212,9 @@ buttonOpenAddCardForm.addEventListener("click", () => {
 //открываем редакт профиля
 buttonOpenEditProfile.addEventListener("click", () => {
   formValidatorEditProfile.cleanErrors();
-  inputAddNameProfileEdit.value = userInfo.getUserInfo().name;
-  inputAddAboutProfileEdit.value = userInfo.getUserInfo().about;
+  const info = userInfo.getUserInfo();
+  inputAddNameProfileEdit.value = info.name;
+  inputAddAboutProfileEdit.value = info.about;
   profileForm.open();
 });
 
